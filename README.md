@@ -1,375 +1,396 @@
-# Type on Strap 
-
-[![Build Status](https://travis-ci.org/Sylhare/Type-on-Strap.svg?branch=master)](https://travis-ci.org/Sylhare/Type-on-Strap) 
-[![Gem Version](https://badge.fury.io/rb/type-on-strap.svg)](https://badge.fury.io/rb/type-on-strap)
-
-A free and open-source [Jekyll](https://jekyllrb.com) theme. Based on Rohan Chandra [type-theme](https://github.com/rohanchandra/type-theme) with a few new features:
-
-* Responsive design
-* Portfolio page for your projects
-* Tags compatibility
-* Bootstrap : [Get Bootstrap](http://getbootstrap.com/)
-* Search feature : [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)
-* Math Rendering : [KateX](https://github.com/Khan/KaTeX)
-* Seo Tags : [Jekyll-seo-tag](https://help.github.com/articles/search-engine-optimization-for-github-pages/)
-* Syntax Highlighting: Easily customisable [Base16](https://github.com/chriskempson/base16)
-* Free of rights images from [pexels](https://www.pexels.com/)
-
-> [Demo](https://sylhare.github.io/Type-on-Strap/)
- 
-[![Default Type on Strap blog](https://github.com/Sylhare/Type-on-Strap/blob/master/screenshot.png?raw=true)](https://sylhare.github.io/Type-on-Strap/)
-
-## Table of Contents
-
-1. [Usage](https://github.com/Sylhare/Type-on-Strap#Usage)
-2. [Structure](https://github.com/Sylhare/Type-on-Strap#structure)
-3. [Configure Type on Strap](https://github.com/Sylhare/Type-on-Strap#configure-type-on-strap)
-4. [Layout](https://github.com/Sylhare/Type-on-Strap#layout)
-5. [Feature pages](https://github.com/Sylhare/Type-on-Strap#feature-pages)
-6. [Template as a Gem](https://github.com/Sylhare/Type-on-Strap#Template-as-a-Gem)
-7. [License](https://github.com/Sylhare/Type-on-Strap#license)
-
-## Usage
-
-1. Fork and clone the [Type on Strap repo](https://github.com/sylhare/Type-On-Strap): `git clone https://github.com/Sylhare/Type-on-Strap.git`
-2. Install [Jekyll](https://jekyllrb.com/docs/installation/): `gem install jekyll`, check [#1](https://github.com/Sylhare/Type-on-Strap/issues/1) if you have a problem.
-3. Install the theme's dependencies: `bundle install`
-4. Customize the theme
-	- Github Page: [update `_config.yml`](https://github.com/Sylhare/Type-on-Strap#site-configuration)
-5. Run the Jekyll server: `jekyll serve`
-
-## Structure
-
-Here are the main files of the template
-
-```bash
-jekyll-theme-basically-basic
-├── _draft	               # To store your drafts, they won't be published on your site
-├── _includes	               # theme includes
-├── _layouts                   # theme layouts (see below for details)
-├── _portfolio	               # collection of article to be populated in the portfolio page
-├── _posts                     # Blog posts
-├── _sass                      # Sass partials 
-├── assets
-|  ├── js	               # theme javascript, Katex, jquery, bootstrap, jekyll search, 
-|  ├── css                     # isolated Bootstrap, font-awesome, katex and main css
-|  ├── fonts		       # Font-Awesome, Glyphicon, and other fonts
-|  └── img		       # Images used for the template
-├── pages
-|   ├── 404.md		       # To be displayed when url is wrong
-|   ├── about.md               # About example page
-|   ├── gallery.md              # Gallery page for your photos
-|   ├── portfolio.md	         # Portfolio page for your projects
-|   ├── search.html	       # Search page
-|   └── search.json            # Specify the search target (page, post, collection)
-├── _config.yml                # sample configuration
-└── index.html                 # sample home page (blog page paginated)
-```
-	
-## Configure Type on Strap
-
-Open `_config.yml` in a text editor to change most of the blog's settings.
-
-If a variable in this document is marked as "optional", disable the feature by removing all text from the variable. 
-
-
-### Site configuration
-Configure Jekyll as your own blog or with a subpath in in `_config.yml`:
-
-Jekyll website *without* a subpath (such as a GitHub Pages website for a given username):
-
-```yml
-  baseurl: ""
-  url: "https://username.github.io"
-```
-
-Jekyll website *with* subpath (like the Type on Strap [demo](https://sylhare.github.io/Type-on-Strap/) page):
-
-```yml
-  baseurl: "/sub-directory"
-  url: "https://username.github.io/"
-```
-
-Please configure this  before using the theme.
-
-### Meta and Branding
-
-Meta variables hold basic information about your Jekyll site which will be used throughout the site and as meta properties for search engines, browsers, and the site's RSS feed.
-
-Change these variables in `_config.yml`:
-
-```yml
-  theme_settings:
-    title: My Jekyll Blog                 # Name of website
-    avatar: assets/img/triangular.svg     # Path of avatar image, to be displayed in the theme's header
-    gravatar: f98....6bfc                 # MD5 hash of your email address
-    description: My blog posts            # Short description, primarily used by search engines
-```
-
-### Customizing text
-
-#### Footer and Header's text
-
-Customize your site header/footer with these variables in `_config.yml`:
-
-```yml
-  theme_settings:
-    header_text: Welcome to my Jekyll blog
-    header_text_feature_image: assets/img/sample3.png
-    footer_text: Copyright 2017
-```
-
-#### Localisation string
-
-Change localization string variables in `_config.yml`.
-
-English text used in the theme has been grouped  so you can quickly translate the theme or change labels to suit your needs.
-
-```yml
-  theme_settings:
-     str_follow_on: "Follow on"
-     str_rss_follow: "Follow RSS feed"
-     str_email: "Email"
-     str_next_post: "Next post"
-     str_previous_post: "Previous post"
-     str_next_page: "Next"
-     str_previous_page: "Prev"
-     str_continue_reading: "Continue reading"
-     str_javascript_required_disqus: "Please enable JavaScript to view comments."
-```
-
-
-### Other features
-
-Jekyll works with [liquid](https://shopify.github.io/liquid/) tags usually represented by:
-
-```
-{{ liquid.tag | filter }}
-```
-
-These are useful to render your jekyll files. You can learn more about them on [shopify's doc](https://help.shopify.com/themes/liquid/basics)
-
-### Footer's icons
-
-Display the site's icon from [Font Awesome](https://fortawesome.github.io/Font-Awesome/) in the footer. All icon variables should be your username enclosed in quotes (e.g. "username") in `_config.yml`, except for the following variables:
-
-```yml
-  theme_settings:
-     rss: true                                                   # Make sure you created a feed.xml with feed.xml layout
-     email_address: type@example.com
-     linkedin: https://www.linkedin.com/in/FirstLast
-     stack_exchange: https://stackoverflow.com/users/0000/first-last
-```
-
-### Comments (via Disqus)
-
-Optionally, if you have a [Disqus](https://disqus.com/) account, you can show a 
-comments section below each post.
-
-To enable Disqus comments, add your [Disqus shortname](https://help.disqus.com/customer/portal/articles/466208) to your project's `_config.yml` file:
-
-```yml
-  theme_settings:
-     disqus_shortname: my_disqus_shortname
-```
-
-### Google Analytics
-
-To enable Google Analytics, add your [tracking ID](https://support.google.com/analytics/answer/1032385) 
-to `_config.yml` like so:
-
-```yml
-  theme_settings:
-     google_analytics: UA-NNNNNNNN-N
-```
-
-### Math typesetting
-
-When KateX is set in `_config.yml`:
-
-```yml
-  theme_settings:
-     katex: true # to Enable it
-```
-
-You can then wrap math expressions with `$$` signs in your posts and make sure you have set the `katex` variable in `_config.yml` to `true` for math typesetting.
-
-For inline math typesetting, type your math expression on the *same line* as your content. For example:
-
-```latex
-Type math within a sentence $$2x^2 + x + c$$ to display inline
-```
-
-For display math typesetting, type your math expression on a *new line*. For example:
-
-```latex
-$$
-  \bar{y} = {1 \over n} \sum_{i = 1}^{n}y_i
-$$
-```
-
-### Post excerpt
-
-The [excerpt](https://jekyllrb.com/docs/posts/#post-excerpts) are the first lines of an article that is display on the blog page. The length of the excerpt has a default of around `250` characters and can be manually set in the post using:
-```yml
----
-layout: post
-title: Sample Page
-excerpt_separator: <!--more-->
----
-
-some text in the excerpt
-<!--more-->
-... rest of the text not shown in the excerpt ...
-```
-
-The html is stripped out of the excerpt so it only display text.
-
-## Layout
-Please refer to the [Jekyll docs for writing posts](https://jekyllrb.com/docs/posts/). Non-standard features are documented below.
-
-### Layout: Post
-
-This are the basic features you can use with the  `post` layout.
-
-```yml
----
-layout: post
-title: Hello World                                # Title of the page
-feature-img: "assets/img/sample.png"              # Add a feature-image to the post
-thumbnail: "assets/img/thumbnail/sample-th.png"   # Add a thumbnail image on blog view
-tags: [sample, markdown, html]
----
-```
-
-With `thumbnail`, you can add a smaller image than the `feature-img`. If you don't want/have a thumbnail you can still use the same image as the feature one.
-
-### Layout: Page
-
-The page layout have a bit more features explained here.
-
-```yml
----
-layout: page
-title: "About" 
-subtitle: "This is a subtitle"   
-feature-img: "assets/img/sample.png" 
-permalink: /about.html               # Set a permalink your your page
-hide: true                           # Prevent the page title to appear in the navbar
-tags: [sample, markdown, html]
----
-```
-
-The hide only hides your page from the navigation bar, it is however still generated and can be access through its link. Use the `_draft` folder to keep files from being generated on your site.
-
-### Layout: Bootstrap
-
-This is the page layout modified to have bootstrap activated to format your content accordingly with the theme.
-
-```yml
---- 
-layout: bootstrap
----
-```
-
-### Layout: Default
-
-This layout includes the head, navigation bar and footer around your content.
-
-## Feature pages
-
-All feature pages besides the "home" one are stored in the `page` folder, they will appear in the navigation bar unless you set `Hide: true` in the front matter. 
-
-Here are the documentation for the other feature pages that can be added through `_config.yml`.
+# About this Cool Concise Jekyll Blog Theme 🤘🤘🤘
+
+[![GitHub stars](https://img.shields.io/github/stars/Gaohaoyang/gaohaoyang.github.io.svg)](https://github.com/Gaohaoyang/gaohaoyang.github.io/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Gaohaoyang/gaohaoyang.github.io.svg)](https://github.com/Gaohaoyang/gaohaoyang.github.io/network)
+[![GitHub issues](https://img.shields.io/github/issues/Gaohaoyang/gaohaoyang.github.io.svg)](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues)
+[![GitHub release](https://img.shields.io/github/release/Gaohaoyang/gaohaoyang.github.io.svg)](https://github.com/Gaohaoyang/gaohaoyang.github.io/releases)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Gaohaoyang/gaohaoyang.github.io/master/LICENSE)
+
+**[中文版 Chinese README 请点击这里 🇨🇳](https://github.com/Gaohaoyang/gaohaoyang.github.io/blob/master/README-zh-cn.md)**
+
+With the escalation of jekyll version, but I also want to reconstruct my older blog theme, so I did reconstruction and added some features recently. My new blog theme will still be stored in this repository. I will also use this theme in the future. Now I have done basically, then I will focus on issues that users opend to make theme better.
+
+**My Blog Url: [http://gaohaoyang.github.io/](http://gaohaoyang.github.io/)**. If you like this theme, you can give me a star to encourage me. Welcome everyone to use it.
+
+## Content
+
+* [Preview](#preview)
+* [Page Details](#page-details)
+    * [Home](#home)
+    * [Archives](#archives)
+    * [Categories](#categories)
+    * [Tags](#tags)
+    * [Collections](#collections)
+    * [Demo](#demo)
+    * [About](#about)
+    * [Comments](#comments)
+    * [Post Contents](#post-contents)
+    * [Code Highlight](#code-highlight)
+    * [Light Shadow](#light-shadow)
+    * [Mobile Adaptation](#mobile-adaptation)
+    * [Footer](#footer)
+    * [Statistical Analysis](#statistical-analysis)
+* [Usage](#usage)
+    * [1. Install ruby and jekyll environment](#1-install-ruby-and-jekyll-environment)
+    * [2. Copy theme code](#2-copy-theme-code)
+    * [3. Change parameter](#3-change-parameter)
+        * [Basic info](#basic-info)
+        * [Link info](#link-info)
+        * [Comments info](#comments-info)
+        * [Statistical analysis info](#statistical-analysis-info)
+    * [4. Write post](#4-write-post)
+    * [5. Local launch](#5-local-launch)
+    * [6. Push to GitHub](#6-push-to-github)
+* [Donate](#donate)
+* [Update Log](#update-log)
+* [License](#license)
+
+## Preview
+
+First of all, let's see previews.
+
+Index Page
+![index](http://ww3.sinaimg.cn/large/7011d6cfjw1f3bdli86awj211k0oyqen.jpg)
+
+Post Page
+![post](http://ww4.sinaimg.cn/large/7011d6cfjw1f3bdmzb9v6j210p0j7gwn.jpg)
+
+## Page Details
 
 ### Home
 
-This page is the used as the home page of the template (in the `index.html`). It displays the list of article in `_posts`.
-You can use this layout in another page (adding a title to it will make it appear in the navigation bar).
+Index page show 5 posts excerpt as a default. Readers can click article title or read more button to see full post. There are recent posts area, categories area and tags area at the right part of the index page. You can also add an area at this part, if you change the file `index.html`.
 
-### Portfolio
+### Archives
 
-Portfolio is a feature page that will take all the markdown/html files in the `_portfolio` folder to create a 3-columns image portfolio matrix.
+Archive post according to the year.
 
-To use the portfolio, simply create a `portfolio.md` with this information inside:
-```yml
---- 
-layout: page
-title : Portfolio 
----
+### Categories
 
-{% include portfolio.html %}
-```
-
-### Gallery
-
-You can create a gallery using [Masonry JS](https://masonry.desandro.com/) which will placing the pictures in optimal position based on available vertical space. You need to specify the `gallery_path` which will be used to find the pictures to render. It will take all of the picture under that directory. Then use the `include` to add it in your page. 
-
-```
----
-layout: page
-title: Gallery
-gallery: "assets/img/pexels"
----
-
-{% include gallery.html gallery_path=page.gallery %}
-```
-
-
-### Search
-
-The search feature is based on [Simple-Jekyll-search](https://github.com/christian-fei/Simple-Jekyll-Search) there is a `search.json` file that will create a list of all of the site posts, pages and portfolios. 
-
-Then there's a `search.js` displaying the formatted results entered in the `search.html` page.
-
-
-The search page can be enable/disable in the navigation bar through the `_config.yml` via:
-```yml
-special_page:
-    search: 
-      icon: "search"
-      enabled: true
-```
+Show posts according to the category.
 
 ### Tags
 
-Tags should be placed between `[]` in your post metadata. Separate each tag with a comma. Tags are recommended for posts and portfolio items.
+Show posts according to the tags.
 
-For example:
+### Collections
+
+The user can collect their favorite article links with `markdown` syntax.
+
+### Demo
+
+I use *[Masonry](http://masonry.desandro.com/)* to rewrite the waterfall responsive layout. Better interactive experience.
+
+### About
+
+The user can write some introduction about theirselves and their site with `markdown` syntax.
+
+### Comments
+
+This theme supports both [disqus](https://disqus.com/) and [多说评论 duoshuo comments](http://duoshuo.com/). It's very easy to config your comments module.
+
+The only thing you need do is to change the `short_name` in the file `_config.yml`. As follows.
 
 ```yml
+# comments
+# two ways to comment, only choose one, and use your own short name
+duoshuo_shortname: #xxx
+disqus_shortname: xxx
+```
+
+### Post Contents
+
+The post contents is fixed at the right side while page is scrolling. There will be a scroll bar on contents while it is outside the window height.
+
+### Code Highlight
+
+While the jekyll is update to 3.x.x, you can use github flavored markdown to write code.
+
+More info to see [syntax-highlighter-changed](https://jekyllrb.com/docs/upgrading/2-to-3/#syntax-highlighter-changed).
+
+### Light Shadow
+
+![light](http://ww3.sinaimg.cn/large/7011d6cfjw1f3be6y4vp3j209i02rweg.jpg)
+
+You can see the white shadow on the current item in the navbar. I call this light shadow.
+
+### Mobile Adaptation
+
+Of course, I have done a very good mobile adaptation.
+
+![mobile](http://ww4.sinaimg.cn/large/7011d6cfjw1f3bebnzxkpj20ah0fzgp4.jpg)
+
+### Footer
+
+**Welcome to use this blog theme, but please keep the theme author info at footer.** Theme designed by [HyG](https://github.com/gaohaoyang).
+
+![footer](http://ww3.sinaimg.cn/large/7011d6cfjw1f3bepd8002j20hl02ct95.jpg)
+
+### Statistical Analysis
+
+This theme supports Google Analytics and Baidu Statistics， you can just config the id in the file `_config.yml`, as follows.
+
+```yml
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+baidu_tongji_id: xxxxxxxxxxxx
+google_analytics_id: UA-xxxxxxxx # google 分析追踪id
+```
+
+## Usage
+
+Welcome everyone to use this theme, this part shows introduction to use.
+
+### 1. Install ruby and jekyll environment
+
+This step and Step 5 mainly talk to you how to launch blog at local. If you don't want to launch at local, you can ignore these 2 steps. But I still strongly suggest to do this. Ensure there is nothing wrong before pushing to the github.
+
+The Windows users can directly use [RubyInstaller](http://rubyinstaller.org/) to install ruby environment. Follow the prompts while installing.
+
+Install jekyll commands:
+
+```
+gem install jekyll
+```
+
+For more details, you can view the jekyll official website. [https://jekyllrb.com/](https://jekyllrb.com/)
+
+There may be something wrong at mac OS X El Capitan, you can see the solution at [https://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011]( https://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011).
+
+If you are interesting in jekyll, you can see the jekyll source code at [https://github.com/jekyll/jekyll](https://github.com/jekyll/jekyll).
+
+![jekyll logo](http://jekyllcn.com/img/logo-2x.png)
+
+### 2. Copy theme code
+
+You can clone, download or fork this repo.
+
+### 3. Change parameter
+
+Mainly change the parameters at file `_config.yml` and use your own `favicon.ico`.
+
+#### Basic info
+
+Shows at site header part.
+
+```yml
+# Site settings
+title: HyG
+brief-intro: Front-end Dev Engineer
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://gaohaoyang.github.io" # the base hostname & protocol for your site
+```
+
+#### Link info
+
+Mainly shows at the footer of the site.
+
+```yml
+# other links
+twitter_username: gaohaoyang126
+facebook_username: gaohaoyang.water
+github_username:  Gaohaoyang
+email: gaohaoyang126@126.com
+weibo_username: 3115521wh
+zhihu_username: gaohaoyang
+linkedIn_username: gaohaoyang
+dribbble_username:
+
+description_footer: 本站记录我前端之旅的沿途风景！
+```
+
+#### Comments info
+
+Get your own `short_name`:
+
+Visit https://disqus.com/ or http://duoshuo.com/. And follow the prompts at the site.
+
+```yml
+# comments
+# two ways to comment, only choose one, and use your own short name
+duoshuo_shortname: #hygblog
+disqus_shortname: xxxx
+```
+
+When you done, you can also see the comments info at disqus or duoshuo admin console.
+
+#### Statistical analysis info
+
+Get Google Analytics id or Baidu Statistics id：
+
+Visit https://www.google.com/analytics/ or http://tongji.baidu.com/. And follow the prompts at the site.
+
+Of course, if you don't want any statistical and analysis info, you can type nothing at id position.
+
+```yml
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+baidu_tongji_id: cf850xxxxxxxxxxxxxxxx
+google_analytics_id: UA-7xxxxxx-4 # google 分析追踪id
+```
+
+When you done, you can see UV, PV, location etc. info at your own Google Analytics or Baidu Statistic console.
+
+### 4. Write post
+
+You can write posts at folder `_posts`. At the beginning of the post, you should declare layout、title、date、categories、tags、author(optional) info、mathjax(optional，click [here](https://www.mathjax.org/) for more detail about `Mathjax`).
+
+```
 ---
 layout: post
-title: Markdown and HTML
-tags: [sample, markdown, html]
+title:  "对这个 jekyll 博客主题的改版和重构"
+date:   2016-03-12 11:40:18 +0800
+categories: jekyll
+tags: jekyll 端口 markdown Foxit RubyGems HTML CSS
+author: Haoyang Gao
+mathjax: true
 ---
 ```
 
-> Tags are case sensitive `Tag_nAme` ≠ `tag_name`
-
-All the tags will be listed in `tags.html` with a link toward the pages or posts.
-The tags page can be enable/disable in the navigation bar through the `_config.yml` via:
-
-```yml
-special_page:
-    tags: 
-      icon: "tags"
-      enabled: true
+These follow code is for making contents.
+```
+* content
+{:toc}
 ```
 
-## Template as a Gem
+You can use 4 wraps as a excerpt separator. The words before separator as excerpt show in the index page. When you enter the post page, you can read full article.
 
-You can use Type-on-strap as a [gem](https://rubygems.org/gems/type-on-strap). Checkout an example in the [gem-demo branch](https://github.com/Sylhare/Type-on-Strap/tree/gem-demo).
-To make the feature pages available in from the gem I created them as layouts that can be invoked in the pages folder.
+The wraps config is in the file `_config.yml`, as follows:
 
-So if you're using the template as a theme, Make sure you have:
-  - A `index.html` file
-  - The right `_config.yml` with the theme setting such as `theme: type-on-strap` uncommented
-  - The feature page included. (ex: as it is already in `pages`)
-  - Some content ready in `_posts` and `_portfolio` to be displayed
+```yml
+# excerpt
+excerpt_separator: "\n\n\n\n"
+```
 
-Now you can use any theme gem with github pages : [29/11/2017 Github Pages Broadcast](https://github.com/blog/2464-use-any-theme-with-github-pages)
+You should use markdown syntax to write article, just like write readme in github.
+
+You can use 3 \`\`\` to write code block.
+
+### 5. Local launch
+
+use command:
+
+```
+jekyll s
+```
+
+Terminal shows:
+
+```
+Configuration file: E:/GitWorkSpace/blog/_config.yml
+            Source: E:/GitWorkSpace/blog
+       Destination: E:/GitWorkSpace/blog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 6.33 seconds.
+  Please add the following to your Gemfile to avoid polling for changes:
+    gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+ Auto-regeneration: enabled for 'E:/GitWorkSpace/blog'
+Configuration file: E:/GitWorkSpace/blog/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+```
+
+Visit localhost:4000 to see your blog!!!
+
+### 6. Push to GitHub
+
+If there is nothing wrong, push code to your github!
+
+## Donate
+
+You can also donate me for a coffee, and I'll do better. Thanks.
+
+|                                                                     PayPal                                                                     |                                 Wechat Pay                                  |                                   Alipay                                    |
+|:----------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+| [![PayPal](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png)<br>Donate via PayPal ](https://www.paypal.me/gaohaoyang) | ![wechat](http://ww2.sinaimg.cn/large/7011d6cfjw1f3bkdw3bslj206z06q3z6.jpg) | ![alipay](http://ww2.sinaimg.cn/large/7011d6cfjw1f3bk8ikzoij20740743z5.jpg) |
+
+
+Thanks these friends!!!
+
+* 2017.05.25 received Wechat user ¥1.00
+* 2017.05.19 received 风之筝 ¥6.66
+* 2017.05.16 received 张驰 ¥6.00
+* 2017.05.03 received 希成 ¥6.66
+* 2017.04.24 received deezer ¥10.00
+* 2017.04.13 received Abraham Xiao ¥30.00
+* 2017.04.11 received Wechat user ¥4.00
+* 2017.04.01 received Elvin Zeng ¥6.66
+* 2017.03.13 received Wechat user ¥6.66
+* 2017.03.04 received 史莱姆 ¥9.90
+* 2017.03.02 received 梦想小熊 ¥6.66
+* 2017.02.27 received 夏友杰 ¥6.66
+* 2017.02.26 received 兰缘小妖 ¥10.00
+* 2017.02.25 received Wechat user ¥6.66
+* 2017.02.22 received Wechat user ¥6.66
+* 2017.02.15 received Wechat user ¥10.00
+* 2017.02.06 received Light ¥10.24
+* 2017.01.15 received Wechat user ¥6.66
+* 2016.12.17 received HitNoah ¥12.00
+* 2016.12.09 received 情融 ¥6.60
+* 2016.11.25 received Wechat user ¥6.66
+* 2016.11.16 received Wechat user ¥1.00
+* 2016.10.24 received 奇峰 ¥6.66
+* 2016.10.21 received 旭廷 ¥10.00
+* 2016.09.25 received 鑫 ¥6.66
+* 2016.08.25 received Erlend Aakre $2.50
+* 2016.08.10 received Wechat user ¥4.40
+* 2016.07.25 received 邓炳初 ¥6.66
+* 2016.07.11 received 彦风 ¥6.66
+* 2016.07.07 received Klci ¥2.50
+* 2016.05.08 received 1057 ¥10.57
+* 2016.05.07 received 吴林 ¥2
+* 2016.04.29 received 北归 ¥10
+* 2016.04.28 received 魏楚阳_Brian ¥2
+* 2016.04.28 received 薛彬 ¥8.8
+
+
+## Update Log
+
+### 2017.2.28
+
+- `[^]` fix smoothScroll bug in Tencent webview like wechat and qq.  [#22](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues/22), [#48](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues/48)
+
+### 2016.6.20
+
+* `[+]` Add next post and previous post link in post page.
+* `[^]` Change the sort of font-family to avoid full-width half-width characters mistake.
+* `[^]` Fix bug in tags cloud when division by zero. [#26](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues/26), [#28](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues/28), [#30](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues/30)
+
+### 2016.5.11 v2.0.1
+
+* `[^]` Optimized code, Extracting common code to `comments.html`
+* `[+]` Add Google Analysis and Baidu Statistics
+* `[+]` Update README, add usage
+* `[+]` Add `favicon.ico`
+* `[^]` Fix bug at contents
+* `[^]` Change the content scroll bar CSS style（Only for `webkit` browser kernel）
+* `[^]` Change tag a color at demo page
+* `[+]` Add busuanzi counter, show the views count at footer
+* `[+]` Add back to top button
+
+### 2016.4.27 v2.0.0
+
+* `[^]` Rewrite all codes based on jekyll 3.1.2
+* `[+]` Add excerpt at index page
+* `[+]` Add recently post, categories and tags cloud at index page
+* `[+]` Add light shadow at navbar
+* `[+]` Add archives, categories, tags page
+* `[+]` Add collections page
+* `[+]` Add comments plugin with disqus or duoshuo
+* `[+]` Mobile Adaptation
+* `[+]` Fix post contents to the right side while scrolling page
+* `[+]` Fix footer at the bottom when page height is smaller than window height
+* `[^]` Use github flavored markdown to write code block(Fenced code blocks)
+* `[^]` Rewrite the demo page with Masonry
+* `[-]` Remove jQuery and BootStrap
+
+About my old blog theme, I won't maintain any more. And I put the code at  [Gaohaoyang/old-blog](https://github.com/Gaohaoyang/old-blog).
 
 ## License
 
-[The MIT License (MIT)](https://raw.githubusercontent.com/Sylhare/Type-on-Strap/master/LICENSE)
+[MIT License](https://github.com/Gaohaoyang/gaohaoyang.github.io/blob/master/LICENSE.md)
